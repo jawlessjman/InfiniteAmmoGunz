@@ -1,0 +1,92 @@
+﻿[
+  {
+    "itemName" : "Infinite Black Metal Bullets",
+    "prefabName" : "BMM_BlackMetalBullet",
+    "recipeItem" : "BMM_BlackMetalBullet"
+  },
+  {
+    "itemName" : "Infinite Carapace Bullets",
+    "prefabName" : "BMM_CarapaceBullet",
+    "recipeItem" : "BMM_CarapaceBullet"
+  },
+  {
+    "itemName" : "Infinite Fire Bullets",
+    "prefabName" : "BMM_FireBullet",
+    "recipeItem" : "BMM_FireBullet"
+  },
+  {
+    "itemName" : "Infinite Flametal Bullets",
+    "prefabName" : "BMM_FlametalBullet",
+    "recipeItem" : "BMM_FlametalBullet"
+  },
+  {
+    "itemName" : "Infinite Ice Bullets",
+    "prefabName" : "BMM_IceBullet",
+    "recipeItem" : "BMM_IceBullet"
+  },
+  {
+    "itemName" : "Infinite Iron Bullets",
+    "prefabName" : "BMM_IronBullet",
+    "recipeItem" : "BMM_IronBullet"
+  },
+  {
+    "itemName" : "Infinite Lightning Bullets",
+    "prefabName" : "BMM_LightningBullet",
+    "recipeItem" : "BMM_LightningBullet"
+  },
+  {
+    "itemName" : "Infinite Poison Bullets",
+    "prefabName" : "BMM_PoisonBullet",
+    "recipeItem" : "BMM_PoisonBullet"
+  },
+  {
+    "itemName" : "Infinite Silver Bullets",
+    "prefabName" : "BMM_SilverBullet",
+    "recipeItem" : "BMM_SilverBullet"
+  },
+  {
+    "itemName" : "Infinite Copper Bullets",
+    "prefabName" : "BMM_CopperBullet",
+    "recipeItem" : "BMM_CopperBullet"
+  },
+  {
+    "itemName" : "Infinite Flint Bullets",
+    "prefabName" : "BMM_FlintBullet",
+    "recipeItem" : "BMM_FlintBullet"
+  },
+  {
+    "itemName" : "Infinite Piercing Bone Bullets",
+    "prefabName" : "BMM_PiercingRounds_Bone",
+    "recipeItem" : "BMM_PiercingRounds_Bone"
+  },
+  {
+    "itemName" : "Infinite Piercing Bronze Bullets",
+    "prefabName" : "BMM_PiercingRounds_Bronze",
+    "recipeItem" : "BMM_PiercingRounds_Bronze"
+  },
+  {
+    "itemName" : "Infinite Piercing Ceramic Bullets",
+    "prefabName" : "BMM_PiercingRounds_Ceramic",
+    "recipeItem" : "BMM_PiercingRounds_Ceramic"
+  },
+  {
+    "itemName" : "Infinite Piercing Charred Bone Bullets",
+    "prefabName" : "BMM_PiercingRounds_CharredBone",
+    "recipeItem" : "BMM_PiercingRounds_CharredBone"
+  },
+  {
+    "itemName" : "Infinite Piercing Chitin Bullets",
+    "prefabName" : "BMM_PiercingRounds_Chitin",
+    "recipeItem" : "BMM_PiercingRounds_Chitin"
+  },
+  {
+    "itemName" : "Infinite Piercing Needle Bullets",
+    "prefabName" : "BMM_PiercingRounds_Needle",
+    "recipeItem" : "BMM_PiercingRounds_Needle"
+  },
+  {
+    "itemName" : "Infinite Piercing Fang Bullets",
+    "prefabName" : "BMM_PiercingRounds_Fang",
+    "recipeItem" : "BMM_PiercingRounds_Fang" 
+  }
+]
