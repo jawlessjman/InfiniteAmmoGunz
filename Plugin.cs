@@ -36,7 +36,6 @@ public class Plugin : BaseUnityPlugin
     {
         // Plugin startup logic
         Logger = base.Logger;
-        Logger.LogInfo($"Plugin {ModName}-{ModVersion} is loaded!");
         
         // Load config values
         _requiredStackCraftSize = Config.Bind(
@@ -87,6 +86,8 @@ public class Plugin : BaseUnityPlugin
         
         // Add function to create infinite ammo bullets
         PrefabManager.OnVanillaPrefabsAvailable += AddInfiniteAmmoBullets;
+        
+        Logger.LogInfo($"Plugin {ModName}-{ModVersion} is loaded!");
     }
     
     /// <summary>
