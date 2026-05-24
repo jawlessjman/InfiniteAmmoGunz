@@ -9,6 +9,7 @@ using InfiniteAmmoGunz.Models;
 using HarmonyLib;
 using System.Reflection;
 using BepInEx.Configuration;
+using Jotunn.Utils;
 using Newtonsoft.Json;
 
 namespace InfiniteAmmoGunz;
@@ -21,7 +22,7 @@ public class Plugin : BaseUnityPlugin
     // Plugin info
     private const string ModGuid = "jawlessjman.InfiniteAmmoGunz";
     public const string ModName = "InfiniteAmmoGunz";
-    public const string ModVersion = "1.0.0";
+    public const string ModVersion = "1.0.1";
     
     // Config values
     private ConfigEntry<int> _requiredStackCraftSize;
@@ -38,43 +39,19 @@ public class Plugin : BaseUnityPlugin
         Logger = base.Logger;
         
         // Load config values
-        _requiredStackCraftSize = Config.Bind(
-            "General",
-            "Bullet Crafting Amount",
-            400,
-            new ConfigDescription("The required amount of bullets to craft the infinite variant.", new AcceptableValueRange<int>(1, 9999))
-            );
-
-        _weight = Config.Bind(
-            "General",
-            "Infinite Bullet Weight",
-            0.1f,
-            new ConfigDescription("The weight of the infinite bullets.", new AcceptableValueRange<float>(0.1f, 300f))
-        );
-
-        _craftingStation = Config.Bind(
-            "General",
-            "Infinite Bullet Crafting Station",
-            CraftingStationType.Forge,
-            new ConfigDescription("The crafting station where the infinite bullets are crafted.")
-        );
+        LoadConfigs();
         
         // Load translations for English
-        var assembly = Assembly.GetExecutingAssembly();
+        const string resourceName = $"{ModName}.Assets.Translations.English.bullets.json";
+        var localizedEnglish = AssetUtils.LoadTextFromResources(resourceName);
         
-        const string resourceName = "InfiniteAmmoGunz.Assets.Translations.English.bullets.json";
-
-        using var stream = assembly.GetManifestResourceStream(resourceName);
-
-        if (stream == null)
+        if (string.IsNullOrEmpty(localizedEnglish))
         {
             Logger.LogError($"Resource {resourceName} not found. English translations will not be loaded.");
         }
         else
         {
-            using var reader = new StreamReader(stream);
-            var json = reader.ReadToEnd();
-            Jotunn.Managers.LocalizationManager.Instance.GetLocalization().AddJsonFile("English", json);
+            Jotunn.Managers.LocalizationManager.Instance.GetLocalization().AddJsonFile("English", localizedEnglish);
         }
 
         // Load translations for other languages
@@ -209,5 +186,32 @@ public class Plugin : BaseUnityPlugin
             CraftingStationType.None => CraftingStations.None,
             _ => CraftingStations.Forge
         };
+    }
+
+    /// <summary>
+    /// Loads the config values.
+    /// </summary>
+    private void LoadConfigs()
+    {
+        _requiredStackCraftSize = Config.Bind(
+            "General",
+            "Bullet Crafting Amount",
+            400,
+            new ConfigDescription("The required amount of bullets to craft the infinite variant.", new AcceptableValueRange<int>(1, 9999))
+        );
+
+        _weight = Config.Bind(
+            "General",
+            "Infinite Bullet Weight",
+            0.1f,
+            new ConfigDescription("The weight of the infinite bullets.", new AcceptableValueRange<float>(0.1f, 300f))
+        );
+
+        _craftingStation = Config.Bind(
+            "General",
+            "Infinite Bullet Crafting Station",
+            CraftingStationType.Forge,
+            new ConfigDescription("The crafting station where the infinite bullets are crafted.")
+        );
     }
 }
