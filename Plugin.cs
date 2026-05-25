@@ -9,6 +9,7 @@ using InfiniteAmmoGunz.Models;
 using HarmonyLib;
 using System.Reflection;
 using BepInEx.Configuration;
+using ServerSync;
 using Jotunn.Utils;
 using Newtonsoft.Json;
 
@@ -22,12 +23,21 @@ public class Plugin : BaseUnityPlugin
     // Plugin info
     private const string ModGuid = "jawlessjman.InfiniteAmmoGunz";
     public const string ModName = "InfiniteAmmoGunz";
-    public const string ModVersion = "1.0.1";
+    public const string ModVersion = "1.1.0";
     
     // Config values
     private ConfigEntry<int> _requiredStackCraftSize;
     private ConfigEntry<float> _weight;
     private ConfigEntry<CraftingStationType> _craftingStation;
+    
+    private static readonly ConfigSync ConfigSync = new(ModGuid)
+    {
+        DisplayName = ModName,
+        CurrentVersion = ModVersion,
+        MinimumRequiredVersion = "1.1.0",
+        IsLocked = true,
+        ModRequired = true
+    };
     
     internal new static ManualLogSource Logger;
     
@@ -199,6 +209,7 @@ public class Plugin : BaseUnityPlugin
             400,
             new ConfigDescription("The required amount of bullets to craft the infinite variant.", new AcceptableValueRange<int>(1, 9999))
         );
+        ConfigSync.AddConfigEntry(_requiredStackCraftSize).SynchronizedConfig = true;
 
         _weight = Config.Bind(
             "General",
@@ -206,6 +217,7 @@ public class Plugin : BaseUnityPlugin
             0.1f,
             new ConfigDescription("The weight of the infinite bullets.", new AcceptableValueRange<float>(0.1f, 300f))
         );
+        ConfigSync.AddConfigEntry(_weight).SynchronizedConfig = true;
 
         _craftingStation = Config.Bind(
             "General",
@@ -213,5 +225,6 @@ public class Plugin : BaseUnityPlugin
             CraftingStationType.Forge,
             new ConfigDescription("The crafting station where the infinite bullets are crafted.")
         );
+        ConfigSync.AddConfigEntry(_craftingStation).SynchronizedConfig = true;
     }
 }
